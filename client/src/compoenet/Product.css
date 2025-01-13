@@ -1,0 +1,112 @@
+ .product-container {
+     padding: 2rem;
+     font-family: 'Arial', sans-serif;
+     background-color: #f9f9f9;
+     color: #333;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+     width: 93.6vw;
+     align-items: center;
+ }
+
+ .title {
+     text-align: center;
+     font-size: 2.5rem;
+     color: #4CAF50;
+     margin-bottom: 2rem;
+     text-transform: uppercase;
+ }
+
+ .product-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     gap: 2rem;
+     width: 95%;
+ }
+
+ .product-card {
+     background: #fff;
+     height: 230px;
+     border-radius: 10px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     overflow: hidden;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     position: relative;
+ }
+
+
+ .product-name {
+     font-size: 1.5rem;
+     color: #333;
+     margin: 1rem 1rem 0.5rem;
+ }
+
+ .product-description {
+     font-size: 1rem;
+     color: #666;
+     margin: 0 1rem 1rem;
+     height: 60px;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .product-price {
+     font-size: 1.25rem;
+     color: #4CAF50;
+     font-weight: bold;
+     margin: 0 1rem 1.5rem;
+ }
+
+ .btns {
+     position: absolute;
+     bottom: 10px;
+ }
+
+ .btns button {
+     padding: 0.4rem;
+     color: white;
+     background-color: #4CAF50;
+     border: none;
+     border-radius: 4px;
+     margin-left: 1rem;
+     cursor: pointer;
+ }
+
+ .product-container .create {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     
+ }
+
+ .product-container .create a {
+     color: #fff;
+     text-decoration: none;
+     padding: 0.4rem;
+     border-radius: 4px;
+     background-color: #4CAF50;
+ }
+
+ .product-container .create select{
+   padding: 0.5rem;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   outline: none;
+ }
+
+ .pagination{
+   display: flex;
+   gap: 1rem;   
+    align-items: center;
+ }
+ .pagination .page{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    width: 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.2rem;
+    border-radius: 4px;
+ }
