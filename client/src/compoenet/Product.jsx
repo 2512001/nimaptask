@@ -28,6 +28,7 @@ function Product() {
     async function fetchData() {
       try {
         const res = await axios.get(`http://localhost:8000/api/category`);
+        console.log(res);
         setCategory(res.data.result)
       } catch (err) {
         console.error(err);

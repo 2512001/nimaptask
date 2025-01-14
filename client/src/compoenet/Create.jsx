@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Create.css';
 import { toast } from 'react-toastify';
@@ -9,7 +9,21 @@ function Create() {
     const [categoryName, setCategory] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
+    const [categeory, addCategory] = useState([]);
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await axios.get(`http://localhost:8000/api/category`);
+                addCategory(res.data.result)
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        fetchData();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +40,7 @@ function Create() {
             toast(response.data.message);
             navigate('/')
         } catch (error) {
-            console.error('Error creating product', error);
+            toast.error(error.message);
         }
     };
 
@@ -51,11 +65,12 @@ function Create() {
                         required
                     >
                         <option value="">Select Category</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Furniture">Furniture</option>
-                        <option value="Fashion">Fashion</option>
-                        <option value="Grocery">Grocery</option>
-                        <option value="Toys">Toys</option>
+
+                        {
+                            categeory?.map((cate) => (
+                                <option value={cate._id} key={cate._id}>{cate.name}</option>
+                            ))
+                        }
                     </select>
                 </div>
                 <div className="form-group">

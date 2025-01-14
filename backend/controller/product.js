@@ -73,10 +73,9 @@ export const getCateGoryProduct = async (req, res) => {
 export const addProduct = async (req, res) => {
     try {
         let { productName, categoryName, description , price } = req.body;
-        console.log('api hit');
-        let cate = await categoryModel.findOne({ name: categoryName });
+        let cate = await categoryModel.findById(categoryName);
         if (!cate) {
-            return res.status(301).json({
+            return res.json({
                 message: `${categoryName} does not exits in our website`,
                 sucess: false,
             });
